@@ -30,7 +30,7 @@ for i, folder in enumerate(folders):
     if files:
         file_content = load_file_content(folder, files[0])
         with placeholders[i]:
-            st.write(f"Displaying content from {files[0]} in Block {i + 1}:")
+            #st.write(f"Displaying content from {files[0]} in Block {i + 1}:")
             st.text(file_content)
 
     output_blocks.append(file_content)
@@ -51,7 +51,7 @@ def update_blocks_in_sequence():
 
                 # Update the placeholder for the current block (replace the content)
                 with placeholders[i]:
-                    st.write(f"Updating content from {next_file} in Block {i + 1}:")
+                    #st.write(f"Updating content from {next_file} in Block {i + 1}:")
                     st.text(file_content)
 
             time.sleep(TIME_PERIOD)  # Wait for the next update
