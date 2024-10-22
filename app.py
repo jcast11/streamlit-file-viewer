@@ -28,7 +28,7 @@ files_per_block = []
 for i, folder in enumerate(folders):
     files = get_files_in_folder(folder)
     if files:
-        file_content = load_file_content(folder, files[0])
+        file_content = load_file_content(folder, files[1])
         with placeholders[i]:
             #st.write(f"Displaying content from {files[0]} in Block {i + 1}:")
             st.text(file_content)
@@ -41,7 +41,7 @@ def update_blocks_in_sequence():
     current_file_indices = [0] * len(folders)
 
     while True:
-        for i in range(len(folders)):
+        for i in {0,1,2,3}:
             files = files_per_block[i]
             if len(files) > 1:
                 # Update file index and load the next file
