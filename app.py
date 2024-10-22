@@ -16,7 +16,7 @@ def load_file_content(folder, file):
     with open(file_path, "r") as f:
         return f.read().strip()
 
-st.title("Sonnet")
+st.title("sonnet")
 
 # Create empty placeholders for each block that will be updated
 placeholders = [st.empty() for _ in folders]
