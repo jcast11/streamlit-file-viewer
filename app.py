@@ -16,7 +16,7 @@ def load_file_content(folder, file):
     with open(file_path, "r") as f:
         return f.read().strip()  # Strip removes leading/trailing whitespaces but keeps inner formatting
 
-st.title('File Content Viewer')
+st.title("Lauren's Sonnets")
 
 # Create empty placeholders for each block that will be updated
 placeholders = [st.empty() for _ in folders]
@@ -26,10 +26,9 @@ output_blocks = []
 files_per_block = []
 
 # Define a function to render the content with custom font size and preserve formatting
-def display_file_content_with_formatting(block_number, file_name, file_content, font_size=20):
+def display_file_content_with_formatting(block_number, file_name, file_content, font_size=30):
     html_content = f"""
     <div style="font-size: {font_size}px;">
-        <strong>Displaying content from {file_name} in Block {block_number}:</strong><br><br>
         <pre>{file_content}</pre>  <!-- The <pre> tag preserves the original formatting -->
     </div>
     """
@@ -40,7 +39,7 @@ for i, folder in enumerate(folders):
     if files:
         file_content = load_file_content(folder, files[0])
         with placeholders[i]:
-            st.markdown(display_file_content_with_formatting(i + 1, files[0], file_content, font_size=20), unsafe_allow_html=True)
+            st.markdown(display_file_content_with_formatting(i + 1, files[0], file_content, font_size=30), unsafe_allow_html=True)
 
     output_blocks.append(file_content)
     files_per_block.append(files)
