@@ -8,7 +8,7 @@ TIME_PERIOD = 15  # Time interval (in seconds)
 
 # Function to load the available files from each folder
 def get_files_in_folder(folder):
-    return [f for f in os.listdir(folder) if os.path.isfile(os.path.join(folder, f))]
+    return [f for f in os.listdir(folder) if f.endswith('.txt') and os.path.isfile(os.path.join(folder, f))]
 
 # Function to read the content of the selected file
 def load_file_content(folder, file):
