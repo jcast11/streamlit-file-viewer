@@ -59,7 +59,7 @@ def update_blocks_in_sequence():
 
                 # Update the placeholder for the current block (replace the content)
                 with placeholders[i]:
-                    st.markdown(display_file_content_with_formatting(i + 1, next_file, file_content, font_size=20), unsafe_allow_html=True)
+                    st.markdown(display_file_content_with_formatting(i + 1, next_file, file_content, font_size=30), unsafe_allow_html=True)
 
             time.sleep(TIME_PERIOD)  # Wait for the next update
 
