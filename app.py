@@ -40,7 +40,7 @@ for i, folder in enumerate(folders):
     if files:
         file_content = load_file_content(folder, files[0])
         with placeholders[i]:
-            st.markdown(display_file_content_with_font_size(i + 1, files[0], file_content, font_size=25), unsafe_allow_html=True)
+            st.markdown(display_file_content_with_font_size(i + 1, files[0], file_content, font_size=), unsafe_allow_html=True)
 
     output_blocks.append(file_content)
     files_per_block.append(files)
