@@ -42,7 +42,7 @@ def update_blocks_in_sequence():
     current_file_indices = [0] * len(folders)
 
     while True:
-        for i in {0,1,2}:
+        for i in {0,1,2,3}:
             files = files_per_block[i]
             if len(files) > 1:
                 # Update file index and load the next file
