@@ -24,9 +24,10 @@ placeholders = [st.empty() for _ in folders]
 # Initialize output areas and display the initial blocks with the first file's content
 output_blocks = []
 files_per_block = []
-st.write(get_files_in_folder(folder))
+
 for i, folder in enumerate(folders):
     files = get_files_in_folder(folder)
+    st.write(files)
     if files:
         file_content = load_file_content(folder, files[0])
         with placeholders[i]:
