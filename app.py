@@ -2,7 +2,7 @@ import os
 import time
 import streamlit as st
 
-# Define the paths to your local folders
+# Define the paths to your local or cloud folders
 folders = ["./folder1", "./folder2", "./folder3", "./folder4"]
 TIME_PERIOD = 15  # Time interval (in seconds)
 
@@ -18,7 +18,10 @@ def load_file_content(folder, file):
 
 st.title('File Content Viewer')
 
-# Display initial blocks with the first file's content
+# Create empty placeholders for each block that will be updated
+placeholders = [st.empty() for _ in folders]
+
+# Initialize output areas and display the initial blocks with the first file's content
 output_blocks = []
 files_per_block = []
 
@@ -26,8 +29,9 @@ for i, folder in enumerate(folders):
     files = get_files_in_folder(folder)
     if files:
         file_content = load_file_content(folder, files[0])
-        st.write(f"Displaying content from {files[0]} in Block {i + 1}:")
-        st.text(file_content)
+        with placeholders[i]:
+            st.write(f"Displaying content from {files[0]} in Block {i + 1}:")
+            st.text(file_content)
 
     output_blocks.append(file_content)
     files_per_block.append(files)
@@ -40,13 +44,18 @@ def update_blocks_in_sequence():
         for i in range(len(folders)):
             files = files_per_block[i]
             if len(files) > 1:
+                # Update file index and load the next file
                 current_file_indices[i] = (current_file_indices[i] + 1) % len(files)
                 next_file = files[current_file_indices[i]]
                 file_content = load_file_content(folders[i], next_file)
-                st.write(f"Updating content from {next_file} in Block {i + 1}:")
-                st.text(file_content)
+
+                # Update the placeholder for the current block (replace the content)
+                with placeholders[i]:
+                    st.write(f"Updating content from {next_file} in Block {i + 1}:")
+                    st.text(file_content)
 
             time.sleep(TIME_PERIOD)  # Wait for the next update
 
 if st.button("Start"):
     update_blocks_in_sequence()
+
