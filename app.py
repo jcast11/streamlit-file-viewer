@@ -16,7 +16,7 @@ def load_file_content(folder, file):
     with open(file_path, "r") as f:
         return f.read().strip()
 
-st.title("Lauren's Sonets")
+st.title('File Content Viewer')
 
 # Create empty placeholders for each block that will be updated
 placeholders = [st.empty() for _ in folders]
@@ -35,7 +35,7 @@ for i, folder in enumerate(folders):
 
     output_blocks.append(file_content)
     files_per_block.append(files)
-time.sleep(TIME_PERIOD)
+
 # Define the update function
 def update_blocks_in_sequence():
     current_file_indices = [0] * len(folders)
@@ -56,6 +56,6 @@ def update_blocks_in_sequence():
 
             time.sleep(TIME_PERIOD)  # Wait for the next update
 
-if st.button("Start"):
-    update_blocks_in_sequence()
+# Automatically start the update process when the app is loaded
+update_blocks_in_sequence()
 
