@@ -35,13 +35,16 @@ for i, folder in enumerate(folders):
 
     output_blocks.append(file_content)
     files_per_block.append(files)
+
+# Wait for the first full TIME_PERIOD before starting updates
 time.sleep(TIME_PERIOD)
+
 # Define the update function
 def update_blocks_in_sequence():
     current_file_indices = [0] * len(folders)
 
     while True:
-        for i in {0,1,2}:
+        for i in range(len(folders)):
             files = files_per_block[i]
             if len(files) > 1:
                 # Update file index and load the next file
@@ -58,4 +61,5 @@ def update_blocks_in_sequence():
 
 # Automatically start the update process when the app is loaded
 update_blocks_in_sequence()
+
 
