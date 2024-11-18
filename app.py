@@ -50,7 +50,7 @@ def update_blocks_in_sequence():
             #files = files_per_block[i]
             if len(files) > 1:
                 
-                current_file_indices[i] = (current_file_indices[i] + 1) % len(files)
+                #current_file_indices[i] = (current_file_indices[i] + 1) % len(files)
                 next_file = random.choice(files)
                 file_content = load_file_content(folders[i], next_file)
 
