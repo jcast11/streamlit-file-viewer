@@ -29,6 +29,7 @@ files_per_block = []
 for i, folder in enumerate(folders):
     files = get_files_in_folder(folder)
     random_file = random.choice(files)
+    print(random_file)
     
     if files:
         file_content = load_file_content(folder, random_file)
