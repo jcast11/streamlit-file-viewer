@@ -47,7 +47,7 @@ def update_blocks_in_sequence():
 
     while True:
         for i in {0,1,2,3}:
-            files = files_per_block[i]
+            #files = files_per_block[i]
             if len(files) > 1:
                 
                 current_file_indices[i] = (current_file_indices[i] + 1) % len(files)
