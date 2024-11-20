@@ -5,7 +5,7 @@ import streamlit as st
 
 # Define the paths to your local or cloud folders
 folders = ["./folder1", "./folder2", "./folder3", "./folder4"]
-TIME_PERIOD = 12  # Time interval (in seconds)
+TIME_PERIOD = 13  # Time interval (in seconds)
 
 # Function to load the available files from each folder
 def get_files_in_folder(folder):
